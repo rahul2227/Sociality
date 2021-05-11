@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sociality/Screens/HomeScreen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:sociality/HelperFunctions/Authenticate.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -12,9 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.red),
-      initialRoute: "/login",
+      initialRoute: "/authenticate",
       routes: {
-        "/login": (context) => LoginScreen(),
+        "/authenticate": (context) => Authenticate(),
       },
       debugShowCheckedModeBanner: false,
     );
