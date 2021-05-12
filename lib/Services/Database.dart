@@ -26,5 +26,4 @@ class DatabaseMethods {
   //       .where('name', isEqualTo: searchField)
   //       .getDocuments();
   // }
-  // TODO -  Correct the documents part of this function.
 }

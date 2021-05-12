@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
+// This file will be used for the reference of the timer and understanding the code.
 
 import 'package:sociality/HelperFunctions/TimerPainter.dart';
 

@@ -23,7 +23,7 @@ class _SignUpState extends State<SignUp> {
   final formKey = GlobalKey<FormState>();
   bool isLoading = false;
 
-  SignMeUp() async {
+  signMeUp() async {
     if (formKey.currentState.validate()) {
       setState(() {
         isLoading = true;
@@ -38,6 +38,8 @@ class _SignUpState extends State<SignUp> {
             "name": usernameEditingController.text,
             "email": emailEditingController.text
           };
+
+          print(userDataMap);
 
           databaseMethods.addUserInfo(userDataMap);
 
@@ -71,7 +73,6 @@ class _SignUpState extends State<SignUp> {
                   child: Column(
                     //using this column with combination of single list instead of listview
                     // crossAxisAlignment: CrossAxisAlignment.start,
-                    //TODO - validate all of the functions using form key.
                     children: <Widget>[
                       Container(
                         height: MediaQuery.of(context).size.height * 0.45,
@@ -163,9 +164,7 @@ class _SignUpState extends State<SignUp> {
                           constraints: BoxConstraints.tightFor(width: 200),
                           child: ElevatedButton(
                             onPressed: () {
-                              SignMeUp();
-                              // TODO - Implement a timer main screen to send
-                              // the controller and user to the main screen
+                              signMeUp();
                             },
                             child: Text("Sign Up"),
                           ),

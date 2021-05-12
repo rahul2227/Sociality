@@ -3,6 +3,7 @@ import 'package:sociality/Models/User.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sociality/Screens/MainTimerScreen.dart';
 
 // FirebaseUser is changed to User
 // AuthResult has been changed to UserCredential
@@ -21,6 +22,7 @@ class AuthService {
       User user = result.user;
       return _userFromFirebaseUser(user);
     } catch (e) {
+      print("this is the error from signInWithEmailAndPassword");
       print(e.toString());
       return null;
     }
@@ -65,7 +67,8 @@ class AuthService {
 
     if (result == null) {
     } else {
-      // Navigator.push(context, MaterialPageRoute(builder: (context) => Chat()));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => MainTimerScreen()));
       //Add Navigation to the timer screen which is empty currently.
     }
   }
