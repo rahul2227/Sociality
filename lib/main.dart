@@ -14,7 +14,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: Colors.red),
+      theme: ThemeData(
+          canvasColor: Colors.blueGrey,
+          iconTheme: IconThemeData(color: Colors.red),
+          accentColor: Colors.blueAccent,
+          brightness: Brightness.dark),
       initialRoute: "/authenticate",
       routes: {
         "/authenticate": (context) => Authenticate(),

@@ -37,7 +37,8 @@ class _LoginScreenState extends State<LoginScreen> {
         if (result != null) {
           QuerySnapshot userInfoSnapshot =
               await DatabaseMethods().getUserInfo(emailEditingController.text);
-
+          print(
+              "This is the email value- ${DatabaseMethods().getUserInfo(emailEditingController.text)}");
           HelperFunctions.saveUserLoggedInSharedPreference(true);
           HelperFunctions.saveUserNameSharedPreference(
               userInfoSnapshot.docs[0].get("name"));
