@@ -4,6 +4,7 @@ import 'package:sociality/Screens/MainTimerScreen.dart';
 import 'package:sociality/Services/Auth.dart';
 import 'package:sociality/HelperFunctions/HelperFunction.dart';
 import 'package:sociality/Services/Database.dart';
+import 'package:sociality/Widgets/BottomTabBarWidget.dart';
 
 class LoginScreen extends StatefulWidget {
   final Function toggleView;
@@ -45,9 +46,10 @@ class _LoginScreenState extends State<LoginScreen> {
           HelperFunctions.saveUserEmailSharedPreference(
               userInfoSnapshot.docs[0].get("email"));
 
+          // Navigator.pushReplacement(context,
+          //     MaterialPageRoute(builder: (context) => MainTimerScreen()));
           Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => MainTimerScreen()));
-          //TODO - MAintimer screen is just for the reference create the screen according to design.
+              MaterialPageRoute(builder: (context) => BottomNavigation()));
         } else {
           setState(() {
             isloading = false;

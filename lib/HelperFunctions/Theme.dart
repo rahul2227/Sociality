@@ -8,4 +8,5 @@ class Constants {
   static Color kCardcolor = Color(0xFFFDDBC5);
   static Color kNotactive = Color(0xFFD8D8D8);
   static Color kaccent1 = Color(0xFFF06449);
+  static Color kaccent2 = Color(0xFFFFED66);
 }

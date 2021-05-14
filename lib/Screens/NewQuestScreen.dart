@@ -25,7 +25,7 @@ class _NewquestState extends State<Newquest> {
         backgroundColor: Constants.kBackgroundcolor,
         appBar: AppBar(
           title:
-              Text('New Quest', style: Theme.of(context).textTheme.headline3),
+              Text('New Quest', style: Theme.of(context).textTheme.headline5),
           titleSpacing: 0,
           elevation: 0,
         ),
@@ -42,7 +42,7 @@ class _NewquestState extends State<Newquest> {
                     child: Text('Quest name',
                         style: Theme.of(context)
                             .textTheme
-                            .headline3
+                            .headline5
                             .merge(TextStyle(fontWeight: FontWeight.w700))),
                   ),
                   Container(
@@ -70,7 +70,7 @@ class _NewquestState extends State<Newquest> {
                     child: Text('Quest description',
                         style: Theme.of(context)
                             .textTheme
-                            .headline3
+                            .headline5
                             .merge(TextStyle(fontWeight: FontWeight.w700))),
                   ),
                   Container(
@@ -99,7 +99,7 @@ class _NewquestState extends State<Newquest> {
                     child: Text('Skill',
                         style: Theme.of(context)
                             .textTheme
-                            .headline3
+                            .headline5
                             .merge(TextStyle(fontWeight: FontWeight.w700))),
                   ),
                   Container(
@@ -142,7 +142,7 @@ class _NewquestState extends State<Newquest> {
                     child: Text('Minimum experience',
                         style: Theme.of(context)
                             .textTheme
-                            .headline3
+                            .headline5
                             .merge(TextStyle(fontWeight: FontWeight.w700))),
                   ),
                   Container(

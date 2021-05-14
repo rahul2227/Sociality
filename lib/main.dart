@@ -10,7 +10,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,12 +22,16 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Rajdhani',
         textTheme: TextTheme(
                 headline1:
-                    TextStyle(fontSize: 31.104, fontWeight: FontWeight.w600),
+                    TextStyle(fontSize: 40.0, fontWeight: FontWeight.w600),
                 headline2:
-                    TextStyle(fontSize: 25.92, fontWeight: FontWeight.w600),
+                    TextStyle(fontSize: 35.0, fontWeight: FontWeight.w600),
                 headline3:
-                    TextStyle(fontSize: 21.6, fontWeight: FontWeight.w600),
+                    TextStyle(fontSize: 31.104, fontWeight: FontWeight.w600),
                 headline4:
+                    TextStyle(fontSize: 25.92, fontWeight: FontWeight.w600),
+                headline5:
+                    TextStyle(fontSize: 21.6, fontWeight: FontWeight.w600),
+                headline6:
                     TextStyle(fontSize: 15.0, fontWeight: FontWeight.w700),
                 bodyText1:
                     TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),

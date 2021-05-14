@@ -11,7 +11,7 @@ class Questboard extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Quest Board',
-          style: Theme.of(context).textTheme.headline3,
+          style: Theme.of(context).textTheme.headline5,
         ),
         elevation: 0,
         actions: [

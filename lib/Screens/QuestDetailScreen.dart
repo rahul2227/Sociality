@@ -9,7 +9,7 @@ class QuestDetails extends StatelessWidget {
         backgroundColor: Constants.kBackgroundcolor,
         appBar: AppBar(
           title: Text('Quest details',
-              style: Theme.of(context).textTheme.headline3),
+              style: Theme.of(context).textTheme.headline5),
           elevation: 0,
           actions: [
             Container(
@@ -51,7 +51,7 @@ class QuestDetails extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 5.0),
                       child: Text(
                         'Quest Name',
-                        style: Theme.of(context).textTheme.headline2,
+                        style: Theme.of(context).textTheme.headline4,
                       ),
                     ),
                     Padding(
@@ -70,7 +70,7 @@ class QuestDetails extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Text('Skill',
-                                  style: Theme.of(context).textTheme.headline4),
+                                  style: Theme.of(context).textTheme.headline6),
                               Text('Medium',
                                   style: Theme.of(context).textTheme.bodyText1),
                             ],
@@ -82,7 +82,7 @@ class QuestDetails extends StatelessWidget {
                               children: <Widget>[
                                 Text('Experience',
                                     style:
-                                        Theme.of(context).textTheme.headline4),
+                                        Theme.of(context).textTheme.headline6),
                                 Text('4yrs',
                                     style:
                                         Theme.of(context).textTheme.bodyText1),
@@ -94,7 +94,7 @@ class QuestDetails extends StatelessWidget {
                     ),
                     Text(
                       'Quest Members',
-                      style: Theme.of(context).textTheme.headline3,
+                      style: Theme.of(context).textTheme.headline5,
                     )
                   ],
                 ),
