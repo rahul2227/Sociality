@@ -5,7 +5,6 @@ class Newquest extends StatefulWidget {
   // this is the new quest form
 // Quest data will be transferred to firebase from here and then will be retrieved by
 // Quest board
-// TODO See where to access this screen from??
   @override
   _NewquestState createState() => _NewquestState();
 }

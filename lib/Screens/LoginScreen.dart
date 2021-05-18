@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:sociality/Screens/MainTimerScreen.dart';
 import 'package:sociality/Services/Auth.dart';
 import 'package:sociality/HelperFunctions/HelperFunction.dart';
 import 'package:sociality/Services/Database.dart';
@@ -53,7 +52,19 @@ class _LoginScreenState extends State<LoginScreen> {
         } else {
           setState(() {
             isloading = false;
-            //TODO show snackbar
+            final snackBar = SnackBar(
+              content: Text('Login Failed'),
+              action: SnackBarAction(
+                label: 'Try Again',
+                onPressed: () {
+                  //TODO - Some code to Try Again to perform the change if you want.
+                },
+              ),
+            );
+
+            // Find the ScaffoldMessenger in the widget tree
+            // and use it to show a SnackBar.
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
           });
         }
       });
@@ -76,7 +87,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: MediaQuery.of(context).size.height * 0.45,
                     width: MediaQuery.of(context).size.width,
                     child: Center(
-                      child: Text("Main Themed Icon will come here."),
+                      child: Image.asset("assets/images/logo.png"),
+                      // TODO - Need a higher quality image as it is tearing up.
                     ),
                   ),
                   Padding(

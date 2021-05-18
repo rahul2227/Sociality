@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sociality/Screens/ClanScreen.dart';
 import 'package:sociality/Screens/MainTimerScreen.dart';
 import 'package:sociality/Screens/QuestBoardScreen.dart';
+import 'package:sociality/Screens/SquadScreen.dart';
 
 class BottomNavigation extends StatefulWidget {
   @override
@@ -9,7 +11,12 @@ class BottomNavigation extends StatefulWidget {
 
 class _BottomNavigationState extends State<BottomNavigation> {
   int _currentIndex = 0;
-  final List<Widget> _children = [MainTimerScreen(), Questboard()];
+  final List<Widget> _children = [
+    MainTimerScreen(),
+    Questboard(),
+    Squad(),
+    Clan()
+  ];
 
   void onTabTapped(int index) {
     setState(() {
@@ -26,10 +33,29 @@ class _BottomNavigationState extends State<BottomNavigation> {
         currentIndex: _currentIndex,
         items: [
           new BottomNavigationBarItem(
-              icon: Icon(Icons.access_time_rounded), label: ""),
-          new BottomNavigationBarItem(icon: Icon(Icons.menu), label: ""),
-          // new BottomNavigationBarItem(icon: Icon(Icons.people)),
-          // new BottomNavigationBarItem(icon: Icon(Icons.shield)),
+              icon: Icon(
+                Icons.access_time_rounded,
+                color: Colors.red,
+              ),
+              label: ""),
+          new BottomNavigationBarItem(
+              icon: Icon(
+                Icons.menu,
+                color: Colors.red,
+              ),
+              label: ""),
+          new BottomNavigationBarItem(
+              icon: Icon(
+                Icons.people,
+                color: Colors.red,
+              ),
+              label: ""),
+          new BottomNavigationBarItem(
+              icon: Icon(
+                Icons.shield,
+                color: Colors.red,
+              ),
+              label: ""),
         ],
       ),
     );

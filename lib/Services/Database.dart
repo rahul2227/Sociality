@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DatabaseMethods {
@@ -20,6 +22,20 @@ class DatabaseMethods {
     });
   }
 
+  Future<Void> addQueast(userQuestMap) async {
+    // Map<String, String> userQuestMap = {
+    //   "title": "quest title",
+    //   "description": "quest description",
+    //   "users": "üsers of the quest array solve this" // TODO
+    // };
+
+    FirebaseFirestore.instance
+        .collection("quests")
+        .add(userQuestMap)
+        .catchError((e) {
+      print(e.toString());
+    });
+  }
   // searchByName(String searchField) {
   //   return FirebaseFirestore.instance
   //       .collection("users")

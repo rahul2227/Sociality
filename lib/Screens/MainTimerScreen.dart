@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sociality/HelperFunctions/Theme.dart';
-import 'package:sociality/Widgets/BottomTabBarWidget.dart';
+import 'package:sociality/Widgets/AppBarWidget.dart';
 import 'package:sociality/Widgets/QuestCard.dart';
 
 class MainTimerScreen extends StatefulWidget {
@@ -16,7 +16,7 @@ class _MainTimerScreenState extends State<MainTimerScreen>
 
   String get timerString {
     Duration duration = controller.duration * controller.value;
-    return '${duration.inMinutes}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
+    return '${duration.inHours.toString().padLeft(2, '0')}:${duration.inMinutes.toString().padLeft(2, '0')}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
   }
 
   void toggleVisibility() {
@@ -40,21 +40,19 @@ class _MainTimerScreenState extends State<MainTimerScreen>
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Main Timer UI"),
-      ),
-      // bottomNavigationBar: CoBottomNavigationBar(items: items),
+      backgroundColor: Constants.kBackgroundcolor,
+      appBar: appBarCustom(context),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Text(
-            "Time Left",
-            style: theme.textTheme.headline3,
-          ),
           Icon(
             Icons.access_time_outlined,
             size: 115,
+          ),
+          Text(
+            "Timer",
+            style: theme.textTheme.headline4,
           ),
           AnimatedBuilder(
               animation: controller,
@@ -131,12 +129,15 @@ class _MainTimerScreenState extends State<MainTimerScreen>
               ],
             ),
           ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Container(
-              child: Text(
-                "Priority Quest.",
-                style: theme.textTheme.headline3,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                child: Text(
+                  "Priority Quest.",
+                  style: theme.textTheme.headline3,
+                ),
               ),
             ),
           ),
