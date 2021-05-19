@@ -3,9 +3,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:sociality/HelperFunctions/Authenticate.dart';
 import 'package:sociality/HelperFunctions/Theme.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 

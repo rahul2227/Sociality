@@ -72,7 +72,7 @@ class _MainTimerScreenState extends State<MainTimerScreen>
               children: <Widget>[
                 GestureDetector(
                   onTap: () {
-                    print("Timer tapped");
+                    print("Timer tapped"); // TODO - add the timer form
                   },
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),

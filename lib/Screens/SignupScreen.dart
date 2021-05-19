@@ -78,7 +78,7 @@ class _SignUpState extends State<SignUp> {
                         height: MediaQuery.of(context).size.height * 0.45,
                         width: MediaQuery.of(context).size.width,
                         child: Center(
-                          child: Text("Main Themed Icon will come here."),
+                          child: Image.asset("assets/images/logo.png"),
                         ),
                       ),
                       Padding(
