@@ -29,10 +29,10 @@ class Clan extends StatelessWidget {
             children: <Widget>[
               Row(
                 children: [
-                  Icon(Icons.circle, color: Constants.kTextcolor, size: 18.0),
+                  Icon(Icons.circle, color: Constants.kTextcolor, size: 14.4),
                   Padding(
                     padding: const EdgeInsets.only(left: 10.0),
-                    child: Text('Clan member name',
+                    child: Text('Nav Jindal',
                         style: Theme.of(context).textTheme.headline3),
                   ),
                 ],
@@ -56,7 +56,7 @@ class Clan extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Clan member name',
+                  Text('Nav Jindal',
                       style: Theme.of(context).textTheme.headline3),
                 ],
               ),
@@ -124,9 +124,13 @@ class Clan extends StatelessWidget {
     return Scaffold(
         backgroundColor: Constants.kBackgroundcolor,
         appBar: AppBar(
+          automaticallyImplyLeading: true,
           title: Text(
-            'Clan Name',
-            style: Theme.of(context).textTheme.headline3,
+            'Winter Moon',
+            style: Theme.of(context)
+                .textTheme
+                .headline3
+                .merge(TextStyle(fontWeight: FontWeight.w600)),
           ),
           elevation: 0,
         ),
@@ -161,11 +165,11 @@ class Clan extends StatelessWidget {
                     child: Row(
                       children: <Widget>[
                         Icon(Icons.star,
-                            color: Constants.kTextcolor, size: 24.0),
+                            color: Constants.kTextcolor, size: 22.5),
                         Padding(
                           padding: EdgeInsets.only(left: 10.0),
                           child: Text(
-                            'Leader Name',
+                            'Rahul Sharma',
                             style: Theme.of(context).textTheme.headline3,
                           ),
                         ),

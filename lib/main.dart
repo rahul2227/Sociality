@@ -22,19 +22,25 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Rajdhani',
         textTheme: TextTheme(
                 headline1:
-                    TextStyle(fontSize: 40.0, fontWeight: FontWeight.w600),
-                headline2:
-                    TextStyle(fontSize: 35.0, fontWeight: FontWeight.w600),
+                    TextStyle(fontSize: 35.156, fontWeight: FontWeight.w600),
+                headline2: TextStyle(
+                    fontSize: 28.125,
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: 1.2),
                 headline3:
-                    TextStyle(fontSize: 31.104, fontWeight: FontWeight.w600),
-                headline4:
-                    TextStyle(fontSize: 25.92, fontWeight: FontWeight.w600),
+                    TextStyle(fontSize: 22.5, fontWeight: FontWeight.w500),
+                headline4: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: .8),
                 headline5:
-                    TextStyle(fontSize: 21.6, fontWeight: FontWeight.w600),
+                    TextStyle(fontSize: 14.4, fontWeight: FontWeight.w600),
                 headline6:
-                    TextStyle(fontSize: 15.0, fontWeight: FontWeight.w700),
-                bodyText1:
-                    TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
+                    TextStyle(fontSize: 14.4, fontWeight: FontWeight.w700),
+                bodyText1: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: .85),
                 button: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500))
             .apply(
           bodyColor: Constants.kTextcolor,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sociality/HelperFunctions/Theme.dart';
+import 'package:sociality/Screens/Pop-UP%20view/AddTaskPopUp.dart';
 
 class Task extends StatefulWidget {
   @override
@@ -9,10 +10,11 @@ class Task extends StatefulWidget {
 class _TaskState extends State<Task> {
   final TextEditingController ctrl = TextEditingController();
   bool mask = true;
-  List<String> task = [];
+  List<String> task = []; //
 
-  Container buildtask(BuildContext context, String data, int sn, bool masking) {
-    var stateFunction = setState(() {
+  Container buildtask(
+      BuildContext context, String data, int serialNumber, bool masking) {
+    setState(() {
       task.add(ctrl.text);
     });
     return Container(
@@ -43,7 +45,7 @@ class _TaskState extends State<Task> {
                 Container(
                   padding: EdgeInsets.only(left: 10.0),
                   child: Text(
-                    '$sn.',
+                    '$serialNumber.',
                     style:
                         Theme.of(context).textTheme.headline3.merge(TextStyle(
                               color: Constants.kBackgroundcolor,
@@ -66,7 +68,7 @@ class _TaskState extends State<Task> {
               IconButton(
                 onPressed: () {
                   setState(() {
-                    task.removeAt(sn - 1);
+                    task.removeAt(serialNumber - 1);
                   });
                 },
                 icon: Icon(Icons.delete,
@@ -80,65 +82,65 @@ class _TaskState extends State<Task> {
 
   // addNewTask(context, ctrl, task, stateFunction);
 
-  addNewTask(BuildContext context) {
-    return showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title:
-                Text('New Task', style: Theme.of(context).textTheme.headline3),
-            content: TextField(
-              style: Theme.of(context).textTheme.bodyText1,
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Constants.kCardcolor,
-                //hoverColor: Constants.kCardcolor,
-                focusColor: Constants.kaccent1,
-                border: InputBorder.none,
-                focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        new BorderSide(color: Constants.kaccent1, width: 3.0)),
-                errorBorder: OutlineInputBorder(
-                    borderSide:
-                        new BorderSide(color: Constants.kaccent1, width: 3.0)),
-                contentPadding: EdgeInsets.all(12.0),
-              ),
-              controller: ctrl,
-            ),
-            actions: [
-              Container(
-                width: 90,
-                margin: EdgeInsets.only(right: 8.0),
-                child: TextButton(
-                    onPressed: () {
-                      setState(() {
-                        task.add(ctrl.text);
-                      });
-                      Navigator.of(context).pop();
-                    },
-                    style: ButtonStyle(
-                        padding: MaterialStateProperty.all(EdgeInsets.all(8.0)),
-                        backgroundColor:
-                            MaterialStateProperty.all(Constants.kaccent1),
-                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0))),
-                        overlayColor: MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
-                            if (states.contains(MaterialState.hovered))
-                              return Constants.kaccent1;
-                            if (states.contains(MaterialState.focused) ||
-                                states.contains(MaterialState.pressed))
-                              return Constants.kaccent1;
-                            return null; // Defer to the widget's default.
-                          },
-                        )),
-                    child: Text('Done',
-                        style: Theme.of(context).textTheme.button)),
-              ),
-            ],
-          );
-        });
-  }
+  // addNewTask(BuildContext context) {
+  //   return showDialog(
+  //       context: context,
+  //       builder: (context) {
+  //         return AlertDialog(
+  //           title:
+  //               Text('New Task', style: Theme.of(context).textTheme.headline3),
+  //           content: TextField(
+  //             style: Theme.of(context).textTheme.bodyText1,
+  //             decoration: InputDecoration(
+  //               filled: true,
+  //               fillColor: Constants.kCardcolor,
+  //               //hoverColor: Constants.kCardcolor,
+  //               focusColor: Constants.kaccent1,
+  //               border: InputBorder.none,
+  //               focusedBorder: OutlineInputBorder(
+  //                   borderSide:
+  //                       new BorderSide(color: Constants.kaccent1, width: 3.0)),
+  //               errorBorder: OutlineInputBorder(
+  //                   borderSide:
+  //                       new BorderSide(color: Constants.kaccent1, width: 3.0)),
+  //               contentPadding: EdgeInsets.all(12.0),
+  //             ),
+  //             controller: ctrl,
+  //           ),
+  //           actions: [
+  //             Container(
+  //               width: 90,
+  //               margin: EdgeInsets.only(right: 8.0),
+  //               child: TextButton(
+  //                   onPressed: () {
+  //                     setState(() {
+  //                       task.add(ctrl.text);
+  //                     });
+  //                     Navigator.of(context).pop();
+  //                   },
+  //                   style: ButtonStyle(
+  //                       padding: MaterialStateProperty.all(EdgeInsets.all(8.0)),
+  //                       backgroundColor:
+  //                           MaterialStateProperty.all(Constants.kaccent1),
+  //                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
+  //                           borderRadius: BorderRadius.circular(30.0))),
+  //                       overlayColor: MaterialStateProperty.resolveWith<Color>(
+  //                         (Set<MaterialState> states) {
+  //                           if (states.contains(MaterialState.hovered))
+  //                             return Constants.kaccent1;
+  //                           if (states.contains(MaterialState.focused) ||
+  //                               states.contains(MaterialState.pressed))
+  //                             return Constants.kaccent1;
+  //                           return null; // Defer to the widget's default.
+  //                         },
+  //                       )),
+  //                   child: Text('Done',
+  //                       style: Theme.of(context).textTheme.button)),
+  //             ),
+  //           ],
+  //         );
+  //       });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -154,7 +156,9 @@ class _TaskState extends State<Task> {
         actions: <Widget>[
           IconButton(
             onPressed: () {
-              addNewTask(context);
+              // addNewTask(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Generatetask()));
             },
             icon: Icon(Icons.add, size: 24, color: Constants.kTextcolor),
           ),

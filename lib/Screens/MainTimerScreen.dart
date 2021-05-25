@@ -42,108 +42,141 @@ class _MainTimerScreenState extends State<MainTimerScreen>
     return Scaffold(
       backgroundColor: Constants.kBackgroundcolor,
       appBar: appBarCustom(context),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Icon(
-            Icons.access_time_outlined,
-            size: 115,
-          ),
-          Text(
-            "Timer",
-            style: theme.textTheme.headline4,
-          ),
-          AnimatedBuilder(
-              animation: controller,
-              builder: (BuildContext context, Widget child) {
-                return new Text(
-                  timerString, // This is the timer string which is
-                  // wrapped to animation builder for coordinating the animation
-                  style: theme.textTheme.headline1,
-                );
-              }),
-          Container(
-            // This will contain all the buttons there are
-            //to control or add timers
-            margin: EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    print("Timer tapped"); // TODO - add the timer form
-                  },
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    child: Text(
-                      "Start Timer",
-                      style: theme.textTheme.bodyText1,
-                    ), // this will get a pop window asking for time
-                    decoration: BoxDecoration(
-                      color: Constants.kaccent1,
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                  ),
-                ),
-                if (show)
-                  FloatingActionButton(
-                    child: AnimatedBuilder(
-                      animation: controller,
-                      builder: (BuildContext context, Widget child) {
-                        return new Icon(controller.isAnimating
-                            ? Icons.pause
-                            : Icons.play_arrow_outlined);
-                      },
-                    ),
-                    onPressed: () {
-                      if (controller.isAnimating) {
-                        controller.stop();
-                      } else {
-                        controller.reverse(
-                            from: controller.value == 0.0
-                                ? 1.0
-                                : controller.value);
-                        toggleVisibility();
-                      }
-                    },
-                  ),
-                GestureDetector(
-                  onTap: () {
-                    // This will get have a
-                    //popup asking for task details
-                    print("Task tapped");
-                  },
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    child: Text(
-                      "Add Task",
-                      style: theme.textTheme.bodyText1,
-                    ), // this will get a pop window asking for time
-                    decoration: BoxDecoration(
-                      color: Constants.kaccent2,
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                  ),
-                ),
-              ],
+      body: Container(
+        padding: EdgeInsets.fromLTRB(0, 12.0, 0, 0.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Icon(
+              Icons.schedule_outlined,
+              size: 85.831,
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Container(
-                child: Text(
-                  "Priority Quest.",
-                  style: theme.textTheme.headline3,
-                ),
+            // Padding(
+            //     padding:
+            //         const EdgeInsets.symmetric(vertical: 5.0, horizontal: 0),
+            //     child: Text("Timer", style: theme.textTheme.headline3)
+            //     //.merge(TextStyle(fontWeight: FontWeight.w00)),
+            //     ),
+            // //),
+            Padding(
+              padding: const EdgeInsets.only(top: 5.0),
+              child: AnimatedBuilder(
+                  animation: controller,
+                  builder: (BuildContext context, Widget child) {
+                    return new Text(
+                      timerString, // This is the timer string which is
+                      // wrapped to animation builder for coordinating the animation
+                      style: theme.textTheme.headline1,
+                    );
+                  }),
+            ),
+            Container(
+              // This will contain all the buttons there are
+              //to control or add timers
+              margin: EdgeInsets.only(top: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  if (show)
+                    GestureDetector(
+                      onTap: () {
+                        print("Timer tapped");
+                        if (controller.isAnimating) {
+                          controller.stop();
+                        } else {
+                          controller.reverse(
+                              from: controller.value == 0.0
+                                  ? 1.0
+                                  : controller.value);
+                          toggleVisibility();
+                        }
+                      },
+                      child: AnimatedBuilder(
+                        animation: controller,
+                        builder: (BuildContext context, Widget child) {
+                          return new Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 8),
+                            child: Text(
+                              "Start Timer",
+                              style: theme.textTheme.headline4.merge(TextStyle(
+                                  color: Constants.kBackgroundcolor,
+                                  fontWeight: FontWeight.w600)),
+                            ), // this will get a pop window asking for time
+                            decoration: BoxDecoration(
+                              color: Constants.kaccent1,
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  // if (show)
+                  //   FloatingActionButton(
+                  //     child: AnimatedBuilder(
+                  //       animation: controller,
+                  //       builder: (BuildContext context, Widget child) {
+                  //         return new Icon(controller.isAnimating
+                  //             ? Icons.pause
+                  //             : Icons.play_arrow_outlined);
+                  //       },
+                  //     ),
+                  // onPressed: () {
+                  //   if (controller.isAnimating) {
+                  //     controller.stop();
+                  //   } else {
+                  //     controller.reverse(
+                  //         from: controller.value == 0.0
+                  //             ? 1.0
+                  //             : controller.value);
+                  //     toggleVisibility();
+                  //   }
+                  // },
+                  //   ),
+
+                  // GestureDetector(
+                  //   onTap: () {
+                  //     // This will get have a
+                  //     //popup asking for task details
+                  //     print("Task tapped");
+                  //   },
+                  //   child: Container(
+                  //     padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  //     child: Text(
+                  //       "Add Task",
+                  //       style: theme.textTheme.bodyText1,
+                  //     ), // this will get a pop window asking for time
+                  //     decoration: BoxDecoration(
+                  //       color: Constants.kaccent2,
+                  //       borderRadius: BorderRadius.circular(30.0),
+                  //     ),
+                  //   ),
+                  // ),
+                ],
               ),
             ),
-          ),
-          // new Padding(padding: EdgeInsets.all(2.0), child: new Divider()),
-          QuestCard()
-        ],
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16.0, 20.0, 0, 10.0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Container(
+                        child: Text(
+                          "Ongoing Quest",
+                          style: theme.textTheme.headline4,
+                        ),
+                      ),
+                    ),
+                  ),
+                  QuestCard(),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:sociality/HelperFunctions/Theme.dart';
 import 'package:sociality/Services/Auth.dart';
 import 'package:sociality/HelperFunctions/HelperFunction.dart';
 import 'package:sociality/Services/Database.dart';
@@ -74,119 +75,177 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xfff06449),
-        body: ListView(
-          children: <Widget>[
-            Form(
-              key: formKey,
-              child: Column(
-                //using this column with combination of single list instead of listview
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    height: MediaQuery.of(context).size.height * 0.45,
-                    width: MediaQuery.of(context).size.width,
-                    child: Center(
-                      child: Image.asset("assets/images/logo.png"),
-                      // TODO - Need a higher quality image as it is tearing up.
+        backgroundColor: Constants.kBackgroundcolor,
+        body: isloading
+            ? Container(
+                child: Center(
+                  child: CircularProgressIndicator(
+                    backgroundColor: Colors.red[200],
+                    valueColor: AlwaysStoppedAnimation(
+                      Colors.red[100],
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 8.0, vertical: 16),
-                    child: TextFormField(
-                      controller: emailEditingController,
-                      validator: (value) {
-                        return RegExp(
-                                    r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                .hasMatch(value)
-                            ? null
-                            : "Please Enter Correct Email";
-                      },
-                      decoration: new InputDecoration(
-                        border: new OutlineInputBorder(
-                          borderRadius: const BorderRadius.all(
-                            const Radius.circular(30.0),
-                          ),
+                ),
+              )
+            : LayoutBuilder(
+                builder: (context, constraints) => ListView(
+                  children: <Widget>[
+                    Container(
+                      constraints:
+                          BoxConstraints(minHeight: constraints.maxHeight),
+                      child: Form(
+                        key: formKey,
+                        child: Column(
+                          //using this column with combination of single list instead of listview
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                              height: MediaQuery.of(context).size.height * 0.20,
+                              width: MediaQuery.of(context).size.width,
+                              padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
+                              child: Center(
+                                child: Image.asset("assets/images/logo.png"),
+                                // TODO - Need a higher quality image as it is tearing up.
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 16.0, vertical: 10.0),
+                              child: TextFormField(
+                                controller: emailEditingController,
+                                validator: (value) {
+                                  return RegExp(
+                                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                          .hasMatch(value)
+                                      ? null
+                                      : "Please Enter Correct Email";
+                                },
+                                decoration: new InputDecoration(
+                                    contentPadding: EdgeInsets.symmetric(
+                                        vertical: 10.0, horizontal: 16.0),
+                                    filled: true,
+                                    fillColor: Constants.kCardcolor,
+                                    border: InputBorder.none,
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide: new BorderSide(
+                                            color: Constants.kaccent1,
+                                            width: 2.0)),
+                                    hintText: 'Enter your Email',
+                                    hintStyle: TextStyle(
+                                        color: Constants.kTextcolor,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 18.0)),
+                                style: Theme.of(context).textTheme.bodyText1,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 16.0, vertical: 10.0),
+                              child: TextFormField(
+                                controller: passwordEditingController,
+                                validator: (val) {
+                                  return val.length > 6
+                                      ? null
+                                      : "Enter Password 6+ characters";
+                                },
+                                decoration: InputDecoration(
+                                  contentPadding: EdgeInsets.symmetric(
+                                      vertical: 10.0, horizontal: 16.0),
+                                  filled: true,
+                                  fillColor: Constants.kCardcolor,
+                                  border: InputBorder.none,
+                                  focusedBorder: OutlineInputBorder(
+                                      borderSide: new BorderSide(
+                                          color: Constants.kaccent1,
+                                          width: 2.0)),
+                                  hintText: 'Enter your password',
+                                  hintStyle: TextStyle(
+                                      color: Constants.kTextcolor,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                style: Theme.of(context).textTheme.bodyText1,
+                                autofocus: false,
+                                obscureText: true,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 2.0,
+                            ),
+                            Container(
+                              alignment: Alignment.centerRight,
+                              child: Container(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 8),
+                                child: Text("Forgot Password",
+                                    style:
+                                        Theme.of(context).textTheme.headline5),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                            ConstrainedBox(
+                              constraints: BoxConstraints.tightFor(width: 150),
+                              child: ElevatedButton(
+                                style: ButtonStyle(
+                                    padding: MaterialStateProperty.all(
+                                        EdgeInsets.all(8.0)),
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Constants.kaccent1),
+                                    shape: MaterialStateProperty.all(
+                                        RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(30.0))),
+                                    overlayColor: MaterialStateProperty
+                                        .resolveWith<Color>(
+                                      (Set<MaterialState> states) {
+                                        if (states
+                                            .contains(MaterialState.hovered))
+                                          return Constants.kaccent1;
+                                        if (states.contains(
+                                                MaterialState.focused) ||
+                                            states.contains(
+                                                MaterialState.pressed))
+                                          return Constants.kaccent1;
+                                        return null; // Defer to the widget's default.
+                                      },
+                                    )),
+                                onPressed: () {
+                                  logIn();
+                                },
+                                child: Text("Login"),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("Don't have an account? ",
+                                    style:
+                                        Theme.of(context).textTheme.headline5),
+                                GestureDetector(
+                                  onTap: () {
+                                    widget.toggleView();
+                                  },
+                                  child: Text(
+                                    "Sign up Now",
+                                    style: TextStyle(
+                                        color: Constants.kaccent1,
+                                        decoration: TextDecoration.underline,
+                                        fontSize: 14.4,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
                         ),
-                        hintText: 'Enter your Email',
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 8.0, vertical: 16),
-                    child: TextFormField(
-                      controller: passwordEditingController,
-                      validator: (val) {
-                        return val.length > 6
-                            ? null
-                            : "Enter Password 6+ characters";
-                      },
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: const BorderRadius.all(
-                            const Radius.circular(30.0),
-                          ),
-                        ),
-                        hintText: 'Enter your password',
-                      ),
-                      autofocus: false,
-                      obscureText: true,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 2.0,
-                  ),
-                  Container(
-                    alignment: Alignment.centerRight,
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                      child: Text("Forgot Password"),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8.0,
-                  ),
-                  Center(
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints.tightFor(width: 200),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          logIn();
-                        },
-                        child: Text("Login"),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8.0,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      // You need to give new text here consult with NAV
-                      Text("Don't have an account "),
-                      GestureDetector(
-                        onTap: () {
-                          widget.toggleView();
-                        },
-                        child: Text(
-                          "Sign up Now",
-                          style: TextStyle(
-                            color: Colors.white,
-                            decoration: TextDecoration.underline,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-          ],
-        ));
+                  ],
+                ),
+              ));
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sociality/HelperFunctions/Theme.dart';
 
+import 'ClanScreen.dart';
+
 class Squad extends StatelessWidget {
   Container buildclanmember(BuildContext context) {
     return Container(
@@ -29,10 +31,10 @@ class Squad extends StatelessWidget {
             children: <Widget>[
               Row(
                 children: [
-                  Icon(Icons.circle, color: Constants.kTextcolor, size: 18.0),
+                  Icon(Icons.circle, color: Constants.kTextcolor, size: 14.4),
                   Padding(
                     padding: const EdgeInsets.only(left: 10.0),
-                    child: Text('Squad name',
+                    child: Text('Developers',
                         style: Theme.of(context).textTheme.headline3),
                   ),
                 ],
@@ -124,11 +126,30 @@ class Squad extends StatelessWidget {
     return Scaffold(
         backgroundColor: Constants.kBackgroundcolor,
         appBar: AppBar(
+          automaticallyImplyLeading: true,
           title: Text(
             'Squad list',
-            style: Theme.of(context).textTheme.headline3,
+            style: Theme.of(context)
+                .textTheme
+                .headline3
+                .merge(TextStyle(fontWeight: FontWeight.w600)),
           ),
           elevation: 0,
+          actions: <Widget>[
+            IconButton(
+                icon: Icon(Icons.add, size: 24.0, color: Constants.kTextcolor),
+                onPressed: () {}),
+            IconButton(
+                icon: Icon(
+                  Icons.shield,
+                  size: 22.5,
+                  color: Constants.kTextcolor,
+                ),
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => Clan()));
+                })
+          ],
         ),
         body: Container(
           padding: EdgeInsets.fromLTRB(0, 12.0, 0, 0.0),

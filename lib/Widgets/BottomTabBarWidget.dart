@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sociality/Screens/ClanScreen.dart';
 import 'package:sociality/Screens/MainTimerScreen.dart';
 import 'package:sociality/Screens/QuestBoardScreen.dart';
 import 'package:sociality/Screens/SquadScreen.dart';
+import 'package:sociality/Screens/UserAccountScreen.dart';
 
 class BottomNavigation extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     MainTimerScreen(),
     Questboard(),
     Squad(),
-    Clan()
+    AccountScreen()
   ];
 
   void onTabTapped(int index) {
@@ -52,7 +52,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               label: ""),
           new BottomNavigationBarItem(
               icon: Icon(
-                Icons.shield,
+                Icons.person_sharp,
                 color: Colors.red,
               ),
               label: ""),

@@ -25,7 +25,6 @@ class Questboard extends StatelessWidget {
         child: Column(
           children: <Widget>[
             QuestCard(),
-            QuestCard()
           ], //TODO Stream builder here
 // to get the code and descriptions of the container made.
           //TODO See if the code is running without passing the context of the application
