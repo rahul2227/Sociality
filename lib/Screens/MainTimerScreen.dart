@@ -51,13 +51,6 @@ class _MainTimerScreenState extends State<MainTimerScreen>
               Icons.schedule_outlined,
               size: 85.831,
             ),
-            // Padding(
-            //     padding:
-            //         const EdgeInsets.symmetric(vertical: 5.0, horizontal: 0),
-            //     child: Text("Timer", style: theme.textTheme.headline3)
-            //     //.merge(TextStyle(fontWeight: FontWeight.w00)),
-            //     ),
-            // //),
             Padding(
               padding: const EdgeInsets.only(top: 5.0),
               child: AnimatedBuilder(
@@ -111,47 +104,6 @@ class _MainTimerScreenState extends State<MainTimerScreen>
                         },
                       ),
                     ),
-                  // if (show)
-                  //   FloatingActionButton(
-                  //     child: AnimatedBuilder(
-                  //       animation: controller,
-                  //       builder: (BuildContext context, Widget child) {
-                  //         return new Icon(controller.isAnimating
-                  //             ? Icons.pause
-                  //             : Icons.play_arrow_outlined);
-                  //       },
-                  //     ),
-                  // onPressed: () {
-                  //   if (controller.isAnimating) {
-                  //     controller.stop();
-                  //   } else {
-                  //     controller.reverse(
-                  //         from: controller.value == 0.0
-                  //             ? 1.0
-                  //             : controller.value);
-                  //     toggleVisibility();
-                  //   }
-                  // },
-                  //   ),
-
-                  // GestureDetector(
-                  //   onTap: () {
-                  //     // This will get have a
-                  //     //popup asking for task details
-                  //     print("Task tapped");
-                  //   },
-                  //   child: Container(
-                  //     padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  //     child: Text(
-                  //       "Add Task",
-                  //       style: theme.textTheme.bodyText1,
-                  //     ), // this will get a pop window asking for time
-                  //     decoration: BoxDecoration(
-                  //       color: Constants.kaccent2,
-                  //       borderRadius: BorderRadius.circular(30.0),
-                  //     ),
-                  //   ),
-                  // ),
                 ],
               ),
             ),
@@ -171,7 +123,9 @@ class _MainTimerScreenState extends State<MainTimerScreen>
                       ),
                     ),
                   ),
-                  QuestCard(),
+                  Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: QuestCard()),
                 ],
               ),
             )

@@ -15,22 +15,11 @@ class QuestDetails extends StatelessWidget {
             Container(
               margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
               child: TextButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                      padding: MaterialStateProperty.all(EdgeInsets.symmetric(
-                          vertical: 5.0, horizontal: 10.0)),
-                      backgroundColor:
-                          MaterialStateProperty.all(Constants.kaccent1),
-                      overlayColor: MaterialStateProperty.resolveWith<Color>(
-                        (Set<MaterialState> states) {
-                          if (states.contains(MaterialState.hovered))
-                            return Constants.kaccent1;
-                          if (states.contains(MaterialState.focused) ||
-                              states.contains(MaterialState.pressed))
-                            return Constants.kaccent1;
-                          return null; // Defer to the widget's default.
-                        },
-                      )),
+                  onPressed: () {}, // verticle - 5.0 , horizontal - 10.0
+                  style: eventButtonStyleSized(
+                      buttonColor: Constants.kaccent1,
+                      verticle: 5.0,
+                      horizontal: 10.0),
                   child: Text(
                     'Join',
                     style: Theme.of(context).textTheme.button,
@@ -61,37 +50,6 @@ class QuestDetails extends StatelessWidget {
                         style: Theme.of(context).textTheme.bodyText1,
                       ),
                     ),
-                    // Padding(
-                    //   padding: const EdgeInsets.only(bottom: 20.0),
-                    //   child: Row(
-                    //     mainAxisAlignment: MainAxisAlignment.start,
-                    //     children: <Widget>[
-                    //       Column(
-                    //         crossAxisAlignment: CrossAxisAlignment.start,
-                    //         children: <Widget>[
-                    //           Text('Skill',
-                    //               style: Theme.of(context).textTheme.headline6),
-                    //           Text('Medium',
-                    //               style: Theme.of(context).textTheme.bodyText1),
-                    //         ],
-                    //       ),
-                    //       Padding(
-                    //         padding: const EdgeInsets.only(left: 20.0),
-                    //         child: Column(
-                    //           crossAxisAlignment: CrossAxisAlignment.start,
-                    //           children: <Widget>[
-                    //             Text('Experience',
-                    //                 style:
-                    //                     Theme.of(context).textTheme.headline6),
-                    //             Text('4yrs',
-                    //                 style:
-                    //                     Theme.of(context).textTheme.bodyText1),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
                     Text(
                       'Quest Members',
                       style: Theme.of(context).textTheme.headline5,

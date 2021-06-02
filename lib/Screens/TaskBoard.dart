@@ -21,21 +21,9 @@ class _TaskState extends State<Task> {
       margin: EdgeInsets.fromLTRB(16.0, 0, 16.0, 16.0),
       child: TextButton(
         onPressed: () {},
-        autofocus: true,
-        style: ButtonStyle(
-            padding: MaterialStateProperty.all(
-                EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0)),
-            backgroundColor: MaterialStateProperty.all(Constants.kaccent1),
-            overlayColor: MaterialStateProperty.resolveWith<Color>(
-              (Set<MaterialState> states) {
-                if (states.contains(MaterialState.hovered))
-                  return Constants.kaccent1;
-                if (states.contains(MaterialState.focused) ||
-                    states.contains(MaterialState.pressed))
-                  return Constants.kaccent1;
-                return null; // Defer to the widget's default.
-              },
-            )),
+        autofocus: true, // horizontal: 16.0, vertical: 10.0
+        style: eventButtonStyleSized(
+            buttonColor: Constants.kaccent1, horizontal: 16.0, verticle: 10.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,68 +67,6 @@ class _TaskState extends State<Task> {
       ),
     );
   }
-
-  // addNewTask(context, ctrl, task, stateFunction);
-
-  // addNewTask(BuildContext context) {
-  //   return showDialog(
-  //       context: context,
-  //       builder: (context) {
-  //         return AlertDialog(
-  //           title:
-  //               Text('New Task', style: Theme.of(context).textTheme.headline3),
-  //           content: TextField(
-  //             style: Theme.of(context).textTheme.bodyText1,
-  //             decoration: InputDecoration(
-  //               filled: true,
-  //               fillColor: Constants.kCardcolor,
-  //               //hoverColor: Constants.kCardcolor,
-  //               focusColor: Constants.kaccent1,
-  //               border: InputBorder.none,
-  //               focusedBorder: OutlineInputBorder(
-  //                   borderSide:
-  //                       new BorderSide(color: Constants.kaccent1, width: 3.0)),
-  //               errorBorder: OutlineInputBorder(
-  //                   borderSide:
-  //                       new BorderSide(color: Constants.kaccent1, width: 3.0)),
-  //               contentPadding: EdgeInsets.all(12.0),
-  //             ),
-  //             controller: ctrl,
-  //           ),
-  //           actions: [
-  //             Container(
-  //               width: 90,
-  //               margin: EdgeInsets.only(right: 8.0),
-  //               child: TextButton(
-  //                   onPressed: () {
-  //                     setState(() {
-  //                       task.add(ctrl.text);
-  //                     });
-  //                     Navigator.of(context).pop();
-  //                   },
-  //                   style: ButtonStyle(
-  //                       padding: MaterialStateProperty.all(EdgeInsets.all(8.0)),
-  //                       backgroundColor:
-  //                           MaterialStateProperty.all(Constants.kaccent1),
-  //                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
-  //                           borderRadius: BorderRadius.circular(30.0))),
-  //                       overlayColor: MaterialStateProperty.resolveWith<Color>(
-  //                         (Set<MaterialState> states) {
-  //                           if (states.contains(MaterialState.hovered))
-  //                             return Constants.kaccent1;
-  //                           if (states.contains(MaterialState.focused) ||
-  //                               states.contains(MaterialState.pressed))
-  //                             return Constants.kaccent1;
-  //                           return null; // Defer to the widget's default.
-  //                         },
-  //                       )),
-  //                   child: Text('Done',
-  //                       style: Theme.of(context).textTheme.button)),
-  //             ),
-  //           ],
-  //         );
-  //       });
-  // }
 
   @override
   Widget build(BuildContext context) {

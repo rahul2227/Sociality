@@ -105,7 +105,6 @@ class _LoginScreenState extends State<LoginScreen> {
                               padding: EdgeInsets.fromLTRB(0, 0, 0, 20),
                               child: Center(
                                 child: Image.asset("assets/images/logo.png"),
-                                // TODO - Need a higher quality image as it is tearing up.
                               ),
                             ),
                             Padding(
@@ -120,21 +119,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ? null
                                       : "Please Enter Correct Email";
                                 },
-                                decoration: new InputDecoration(
-                                    contentPadding: EdgeInsets.symmetric(
-                                        vertical: 10.0, horizontal: 16.0),
-                                    filled: true,
-                                    fillColor: Constants.kCardcolor,
-                                    border: InputBorder.none,
-                                    focusedBorder: OutlineInputBorder(
-                                        borderSide: new BorderSide(
-                                            color: Constants.kaccent1,
-                                            width: 2.0)),
-                                    hintText: 'Enter your Email',
-                                    hintStyle: TextStyle(
-                                        color: Constants.kTextcolor,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 18.0)),
+                                decoration: textFieldInputDecorationSquared(
+                                    "Enter Your Email"),
                                 style: Theme.of(context).textTheme.bodyText1,
                               ),
                             ),
@@ -148,21 +134,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ? null
                                       : "Enter Password 6+ characters";
                                 },
-                                decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.symmetric(
-                                      vertical: 10.0, horizontal: 16.0),
-                                  filled: true,
-                                  fillColor: Constants.kCardcolor,
-                                  border: InputBorder.none,
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide: new BorderSide(
-                                          color: Constants.kaccent1,
-                                          width: 2.0)),
-                                  hintText: 'Enter your password',
-                                  hintStyle: TextStyle(
-                                      color: Constants.kTextcolor,
-                                      fontWeight: FontWeight.w500),
-                                ),
+                                decoration: textFieldInputDecorationSquared(
+                                    'Enter your password'),
                                 style: Theme.of(context).textTheme.bodyText1,
                                 autofocus: false,
                                 obscureText: true,
@@ -187,29 +160,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ConstrainedBox(
                               constraints: BoxConstraints.tightFor(width: 150),
                               child: ElevatedButton(
-                                style: ButtonStyle(
-                                    padding: MaterialStateProperty.all(
-                                        EdgeInsets.all(8.0)),
-                                    backgroundColor: MaterialStateProperty.all(
-                                        Constants.kaccent1),
-                                    shape: MaterialStateProperty.all(
-                                        RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(30.0))),
-                                    overlayColor: MaterialStateProperty
-                                        .resolveWith<Color>(
-                                      (Set<MaterialState> states) {
-                                        if (states
-                                            .contains(MaterialState.hovered))
-                                          return Constants.kaccent1;
-                                        if (states.contains(
-                                                MaterialState.focused) ||
-                                            states.contains(
-                                                MaterialState.pressed))
-                                          return Constants.kaccent1;
-                                        return null; // Defer to the widget's default.
-                                      },
-                                    )),
+                                style: eventButtonStyle(Constants.kaccent1),
                                 onPressed: () {
                                   logIn();
                                 },

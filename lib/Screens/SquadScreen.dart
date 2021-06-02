@@ -8,19 +8,7 @@ class Squad extends StatelessWidget {
     return Container(
       margin: EdgeInsets.fromLTRB(16.0, 0, 16.0, 16.0),
       child: TextButton(
-        style: ButtonStyle(
-            padding: MaterialStateProperty.all(EdgeInsets.all(15.0)),
-            backgroundColor: MaterialStateProperty.all(Constants.kCardcolor),
-            overlayColor: MaterialStateProperty.resolveWith<Color>(
-              (Set<MaterialState> states) {
-                if (states.contains(MaterialState.hovered))
-                  return Constants.kaccent1;
-                if (states.contains(MaterialState.focused) ||
-                    states.contains(MaterialState.pressed))
-                  return Constants.kaccent1;
-                return null; // Defer to the widget's default.
-              },
-            )),
+        style: eventButtonStyle15(Constants.kaccent1),
         onPressed: () {
           confirmbox(context);
         },
@@ -71,22 +59,7 @@ class Squad extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
-                    style: ButtonStyle(
-                        padding: MaterialStateProperty.all(EdgeInsets.all(8.0)),
-                        backgroundColor:
-                            MaterialStateProperty.all(Constants.kaccent2),
-                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0))),
-                        overlayColor: MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
-                            if (states.contains(MaterialState.hovered))
-                              return Constants.kaccent2;
-                            if (states.contains(MaterialState.focused) ||
-                                states.contains(MaterialState.pressed))
-                              return Constants.kaccent2;
-                            return null; // Defer to the widget's default.
-                          },
-                        )),
+                    style: eventButtonStyle(Constants.kaccent2),
                     child: Text('Cancel',
                         style: Theme.of(context).textTheme.button)),
               ),
@@ -97,22 +70,7 @@ class Squad extends StatelessWidget {
                     onPressed: () {
                       //on click it will go the home screen
                     },
-                    style: ButtonStyle(
-                        padding: MaterialStateProperty.all(EdgeInsets.all(8.0)),
-                        backgroundColor:
-                            MaterialStateProperty.all(Constants.kaccent1),
-                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30.0))),
-                        overlayColor: MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
-                            if (states.contains(MaterialState.hovered))
-                              return Constants.kaccent1;
-                            if (states.contains(MaterialState.focused) ||
-                                states.contains(MaterialState.pressed))
-                              return Constants.kaccent1;
-                            return null; // Defer to the widget's default.
-                          },
-                        )),
+                    style: eventButtonStyle(Constants.kaccent1),
                     child:
                         Text('Add', style: Theme.of(context).textTheme.button)),
               ),

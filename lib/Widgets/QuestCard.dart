@@ -31,7 +31,7 @@ class QuestCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: 5.0),
               child: Text(
-                'Complete the Project Today',
+                'Complete the Project',
                 style: Theme.of(context).textTheme.headline2,
               ),
             ),
@@ -42,31 +42,6 @@ class QuestCard extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyText1,
               ),
             ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.start,
-            //   children: <Widget>[
-            //     Column(
-            //       crossAxisAlignment: CrossAxisAlignment.start,
-            //       children: <Widget>[
-            //         Text('Skill', style: Theme.of(context).textTheme.headline6),
-            //         Text('Medium',
-            //             style: Theme.of(context).textTheme.bodyText1),
-            //       ],
-            //     ),
-            //     Padding(
-            //       padding: const EdgeInsets.only(left: 20.0),
-            //       child: Column(
-            //         crossAxisAlignment: CrossAxisAlignment.start,
-            //         children: <Widget>[
-            //           Text('Experience',
-            //               style: Theme.of(context).textTheme.headline6),
-            //           Text('4yrs',
-            //               style: Theme.of(context).textTheme.bodyText1),
-            //         ],
-            //       ),
-            //     ),
-            //   ],
-            // )
           ],
         ),
       ),

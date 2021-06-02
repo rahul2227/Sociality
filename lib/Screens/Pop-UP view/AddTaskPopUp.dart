@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sociality/HelperFunctions/Theme.dart';
+import 'package:sociality/Services/Database.dart';
 
 class Generatetask extends StatefulWidget {
   @override
@@ -10,6 +11,27 @@ class _GeneratetaskState extends State<Generatetask> {
   final List<String> dropitems = <String>["Quest 1", "Quest 2", "Quest 3"];
 
   String selected = 'Quest 1';
+
+  TextEditingController taskNameEditingController = new TextEditingController();
+  TextEditingController taskDescriptionEditingController =
+      new TextEditingController();
+
+  addTask() {
+    if (taskNameEditingController.text.isNotEmpty) {
+      Map<String, dynamic> taskInfo = {
+        "title": taskNameEditingController.text,
+        "description": taskDescriptionEditingController,
+        "dueDate": ""
+      };
+
+      DatabaseMethods().addDBTask(taskInfo);
+
+      setState(() {
+        taskNameEditingController.text = "";
+        taskDescriptionEditingController.text = "";
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,26 +62,7 @@ class _GeneratetaskState extends State<Generatetask> {
                       margin: const EdgeInsets.only(bottom: 20.0),
                       child: TextField(
                         style: Theme.of(context).textTheme.bodyText1,
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Constants.kCardcolor,
-                          //hoverColor: Constants.kCardcolor,
-                          focusColor: Constants.kaccent1,
-                          border: new OutlineInputBorder(
-                              borderRadius: const BorderRadius.all(
-                                  const Radius.circular(30.0))),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: const BorderRadius.all(
-                                  const Radius.circular(30.0)),
-                              borderSide: new BorderSide(
-                                  color: Constants.kaccent1, width: 3.0)),
-                          errorBorder: OutlineInputBorder(
-                              borderRadius: const BorderRadius.all(
-                                  const Radius.circular(30.0)),
-                              borderSide: new BorderSide(
-                                  color: Constants.kaccent1, width: 3.0)),
-                          contentPadding: EdgeInsets.all(12.0),
-                        ),
+                        decoration: textFieldInputDecorationCircular(),
                       ),
                     ),
 
@@ -76,32 +79,7 @@ class _GeneratetaskState extends State<Generatetask> {
                       child: TextField(
                         maxLines: 5,
                         style: Theme.of(context).textTheme.bodyText1,
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Constants.kCardcolor,
-                          //hoverColor: Constants.kCardcolor,
-                          focusColor: Constants.kaccent1,
-                          border: new OutlineInputBorder(
-                            borderRadius: const BorderRadius.all(
-                              const Radius.circular(30.0),
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: const BorderRadius.all(
-                              const Radius.circular(30.0),
-                            ),
-                            borderSide: new BorderSide(
-                                color: Constants.kaccent1, width: 3.0),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderRadius: const BorderRadius.all(
-                              const Radius.circular(30.0),
-                            ),
-                            borderSide: new BorderSide(
-                                color: Constants.kaccent1, width: 3.0),
-                          ),
-                          contentPadding: EdgeInsets.all(12.0),
-                        ),
+                        decoration: textFieldInputDecorationCircular(),
                       ),
                     ),
 
@@ -114,7 +92,6 @@ class _GeneratetaskState extends State<Generatetask> {
                       ),
                     ),
                     Container(
-                      // TODO - Understand the meaning of this code from nav
                       margin: const EdgeInsets.only(bottom: 20.0),
                       padding:
                           EdgeInsets.symmetric(horizontal: 16.0, vertical: 2.0),
@@ -160,30 +137,7 @@ class _GeneratetaskState extends State<Generatetask> {
                       margin: const EdgeInsets.only(bottom: 20.0),
                       child: TextField(
                         style: Theme.of(context).textTheme.bodyText1,
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Constants.kCardcolor,
-                          //hoverColor: Constants.kCardcolor,
-                          focusColor: Constants.kaccent1,
-                          border: new OutlineInputBorder(
-                            borderRadius: const BorderRadius.all(
-                              const Radius.circular(30.0),
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: const BorderRadius.all(
-                                const Radius.circular(30.0),
-                              ),
-                              borderSide: new BorderSide(
-                                  color: Constants.kaccent1, width: 3.0)),
-                          errorBorder: OutlineInputBorder(
-                              borderRadius: const BorderRadius.all(
-                                const Radius.circular(30.0),
-                              ),
-                              borderSide: new BorderSide(
-                                  color: Constants.kaccent1, width: 3.0)),
-                          contentPadding: EdgeInsets.all(12.0),
-                        ),
+                        decoration: textFieldInputDecorationCircular(),
                       ),
                     ),
                   ],
@@ -198,6 +152,7 @@ class _GeneratetaskState extends State<Generatetask> {
                       width: 90,
                       child: TextButton(
                           onPressed: () {
+                            addTask();
                             Navigator.of(context).pop();
                           },
                           style: ButtonStyle(
