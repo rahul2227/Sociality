@@ -6,21 +6,10 @@ class QuestCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery.of(context).size.width,
       margin: EdgeInsets.fromLTRB(16.0, 0, 16.0, 16.0),
       child: TextButton(
-        style: ButtonStyle(
-            padding: MaterialStateProperty.all(EdgeInsets.all(15.0)),
-            backgroundColor: MaterialStateProperty.all(Constants.kCardcolor),
-            overlayColor: MaterialStateProperty.resolveWith<Color>(
-              (Set<MaterialState> states) {
-                if (states.contains(MaterialState.hovered))
-                  return Constants.kaccent1;
-                if (states.contains(MaterialState.focused) ||
-                    states.contains(MaterialState.pressed))
-                  return Constants.kaccent1;
-                return null; // Defer to the widget's default.
-              },
-            )),
+        style: eventButtonStyle15(Constants.kaccent1),
         onPressed: () {
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => QuestDetails()));

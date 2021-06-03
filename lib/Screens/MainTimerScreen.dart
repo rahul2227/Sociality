@@ -123,9 +123,7 @@ class _MainTimerScreenState extends State<MainTimerScreen>
                       ),
                     ),
                   ),
-                  Container(
-                      width: MediaQuery.of(context).size.width,
-                      child: QuestCard()),
+                  QuestCard(),
                 ],
               ),
             )

@@ -45,6 +45,24 @@ class DatabaseMethods {
     });
   }
 
+  // This function is in construction for adding databases for every single user.
+  Future<Void> addIDDBTask(String userID, taskMap) async {
+    FirebaseFirestore.instance
+        .collection("miscTaskRoom")
+        .add(taskMap)
+        .catchError((e) {
+      print(e.toString());
+    });
+  }
+
+  //This is also under construction for retrieving tasks of every user on case by case basis.
+  getUserTasks(String itIsMyName) async {
+    return await FirebaseFirestore.instance
+        .collection("miscTaskRoom")
+        .where('users', arrayContains: itIsMyName)
+        .snapshots();
+  }
+
   // searchByName(String searchField) {
   //   return FirebaseFirestore.instance
   //       .collection("users")
