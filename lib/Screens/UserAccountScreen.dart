@@ -4,6 +4,8 @@ import 'package:sociality/Services/Auth.dart';
 
 import '../HelperFunctions/Theme.dart';
 
+//TODO - No need for this screen now so transfer logout function
+
 class AccountScreen extends StatelessWidget {
   final AuthService authService = new AuthService();
 

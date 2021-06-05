@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sociality/Screens/MainTimerScreen.dart';
 import 'package:sociality/Screens/QuestBoardScreen.dart';
 import 'package:sociality/Screens/SquadScreen.dart';
-import 'package:sociality/Screens/UserAccountScreen.dart';
+import 'package:sociality/Screens/TaskCompletionScreen.dart';
 
 class BottomNavigation extends StatefulWidget {
   @override
@@ -15,7 +15,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     MainTimerScreen(),
     Questboard(),
     Squad(),
-    AccountScreen()
+    Dashboard()
   ];
 
   void onTabTapped(int index) {

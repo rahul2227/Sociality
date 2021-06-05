@@ -6,6 +6,7 @@ class Constants {
   static Color kTextcolor = Color(0xFF141414);
   static Color kBackgroundcolor = Color(0xFFFEECD6);
   static Color kCardcolor = Color(0xFFFDDBC5);
+  static Color kbodycolor = Color(0xFFADACAC);
   static Color kNotactive = Color(0xFFD8D8D8);
   static Color kaccent1 = Color(0xFFF06449);
   static Color kaccent2 = Color(0xFFFFED66);
@@ -42,6 +43,22 @@ InputDecoration textFieldInputDecorationSquared(String hintText) {
         color: Constants.kTextcolor,
         fontWeight: FontWeight.w500,
         fontSize: 18.0),
+  );
+}
+
+InputDecoration textFieldInputDecorationSmall() {
+  return InputDecoration(
+    filled: true,
+    fillColor: Constants.kCardcolor,
+    //hoverColor: Constants.kCardcolor,
+    focusColor: Constants.kaccent1,
+    border: OutlineInputBorder(
+        borderSide: new BorderSide(color: Constants.kaccent1, width: 3.0)),
+    focusedBorder: OutlineInputBorder(
+        borderSide: new BorderSide(color: Constants.kaccent1, width: 3.0)),
+    errorBorder: OutlineInputBorder(
+        borderSide: new BorderSide(color: Constants.kaccent1, width: 3.0)),
+    contentPadding: EdgeInsets.all(12.0),
   );
 }
 
