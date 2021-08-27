@@ -73,7 +73,7 @@ ButtonStyle eventButtonStyle(Color buttonColor) {
         if (states.contains(MaterialState.hovered)) return buttonColor;
         if (states.contains(MaterialState.focused) ||
             states.contains(MaterialState.pressed)) return buttonColor;
-        return null; // Defer to the widget's default.
+        return Colors.white; // Defer to the widget's default.
       },
     ),
   );
@@ -88,24 +88,26 @@ ButtonStyle eventButtonStyle15(Color buttonColor) {
         if (states.contains(MaterialState.hovered)) return buttonColor;
         if (states.contains(MaterialState.focused) ||
             states.contains(MaterialState.pressed)) return buttonColor;
-        return null; // Defer to the widget's default.
+        return Colors.white; // Defer to the widget's default.
       },
     ),
   );
 }
 
 ButtonStyle eventButtonStyleSized(
-    {Color buttonColor, double verticle, double horizontal}) {
+    {Color? buttonColor, double? verticle, double? horizontal}) {
   return ButtonStyle(
       padding: MaterialStateProperty.all(
-          EdgeInsets.symmetric(vertical: verticle, horizontal: horizontal)),
+          EdgeInsets.symmetric(vertical: verticle!, horizontal: horizontal!)),
       backgroundColor: MaterialStateProperty.all(buttonColor),
       overlayColor: MaterialStateProperty.resolveWith<Color>(
         (Set<MaterialState> states) {
-          if (states.contains(MaterialState.hovered)) return buttonColor;
+          if (states.contains(MaterialState.hovered)) return buttonColor!;
           if (states.contains(MaterialState.focused) ||
-              states.contains(MaterialState.pressed)) return buttonColor;
-          return null; // Defer to the widget's default.
+              states.contains(MaterialState.pressed)) return buttonColor!;
+          return Colors.white; // Defer to the widget's default.
+          // This condition won't run but then again
+          // TODO - Check the default color of the widget
         },
       ));
 }

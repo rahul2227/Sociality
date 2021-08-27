@@ -41,7 +41,7 @@ class _NewquestState extends State<Newquest> {
                     child: Text('Quest name',
                         style: Theme.of(context)
                             .textTheme
-                            .headline5
+                            .headline5!
                             .merge(TextStyle(fontWeight: FontWeight.w700))),
                   ),
                   Container(
@@ -70,7 +70,7 @@ class _NewquestState extends State<Newquest> {
                     child: Text('Quest description',
                         style: Theme.of(context)
                             .textTheme
-                            .headline5
+                            .headline5!
                             .merge(TextStyle(fontWeight: FontWeight.w700))),
                   ),
                   Container(
@@ -99,7 +99,7 @@ class _NewquestState extends State<Newquest> {
                     child: Text('Skill',
                         style: Theme.of(context)
                             .textTheme
-                            .headline5
+                            .headline5!
                             .merge(TextStyle(fontWeight: FontWeight.w700))),
                   ),
                   Container(
@@ -119,10 +119,12 @@ class _NewquestState extends State<Newquest> {
                           size: 24.0 // Add this
                           ),
                       elevation: 2,
-                      style:
-                          Theme.of(context).textTheme.bodyText1.merge(TextStyle(
-                                color: Constants.kTextcolor,
-                              )),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1!
+                          .merge(TextStyle(
+                            color: Constants.kTextcolor,
+                          )),
                       value: selected,
                       items: dropitems.map((item) {
                         return DropdownMenuItem(
@@ -132,7 +134,7 @@ class _NewquestState extends State<Newquest> {
                       }).toList(),
                       onChanged: (value) {
                         setState(() {
-                          selected = value;
+                          selected = value.toString();
                         });
                       },
                     )),
@@ -142,7 +144,7 @@ class _NewquestState extends State<Newquest> {
                     child: Text('Minimum experience',
                         style: Theme.of(context)
                             .textTheme
-                            .headline5
+                            .headline5!
                             .merge(TextStyle(fontWeight: FontWeight.w700))),
                   ),
                   Container(
@@ -193,7 +195,8 @@ class _NewquestState extends State<Newquest> {
                                             .contains(MaterialState.focused) ||
                                         states.contains(MaterialState.pressed))
                                       return Constants.kaccent1;
-                                    return null; // Defer to the widget's default.
+                                    return Constants
+                                        .kaccent1; // Defer to the widget's default.
                                   },
                                 )),
                             child: Text('Done',

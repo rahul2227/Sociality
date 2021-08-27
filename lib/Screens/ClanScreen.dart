@@ -87,7 +87,7 @@ class Clan extends StatelessWidget {
             'Winter Moon',
             style: Theme.of(context)
                 .textTheme
-                .headline3
+                .headline3!
                 .merge(TextStyle(fontWeight: FontWeight.w600)),
           ),
           elevation: 0,

@@ -56,11 +56,12 @@ class _DashboardState extends State<Dashboard> {
                             if (states.contains(MaterialState.focused) ||
                                 states.contains(MaterialState.pressed))
                               return Constants.kaccent1;
-                            return null; // Defer to the widget's default.
+                            return Constants
+                                .kaccent1; // Defer to the widget's default.
                           },
                         )),
                     child: Text('Done',
-                        style: Theme.of(context).textTheme.bodyText1.merge(
+                        style: Theme.of(context).textTheme.bodyText1!.merge(
                             TextStyle(color: Constants.kBackgroundcolor)))),
               ),
             ],
@@ -82,7 +83,7 @@ class _DashboardState extends State<Dashboard> {
                   Text('Enter Old Password',
                       style: Theme.of(context)
                           .textTheme
-                          .bodyText1
+                          .bodyText1!
                           .merge(TextStyle(fontWeight: FontWeight.w600))),
                   Padding(
                     padding: const EdgeInsets.only(top: 5.0),
@@ -111,7 +112,7 @@ class _DashboardState extends State<Dashboard> {
                     child: Text('Enter Old Password',
                         style: Theme.of(context)
                             .textTheme
-                            .bodyText1
+                            .bodyText1!
                             .merge(TextStyle(fontWeight: FontWeight.w600))),
                   ),
                   Padding(
@@ -160,11 +161,12 @@ class _DashboardState extends State<Dashboard> {
                             if (states.contains(MaterialState.focused) ||
                                 states.contains(MaterialState.pressed))
                               return Constants.kaccent1;
-                            return null; // Defer to the widget's default.
+                            return Constants
+                                .kaccent1; // Defer to the widget's default.
                           },
                         )),
                     child: Text('Done',
-                        style: Theme.of(context).textTheme.bodyText1.merge(
+                        style: Theme.of(context).textTheme.bodyText1!.merge(
                             TextStyle(color: Constants.kBackgroundcolor)))),
               ),
             ],
@@ -216,7 +218,7 @@ class _DashboardState extends State<Dashboard> {
                           padding: const EdgeInsets.only(top: 5.0),
                           child: Text(
                             'Occcupation/stream',
-                            style: theme.textTheme.headline3
+                            style: theme.textTheme.headline3!
                                 .merge(TextStyle(fontWeight: FontWeight.w500)),
                           ),
                         )
@@ -229,7 +231,7 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Text(
                   'Email',
-                  style: theme.textTheme.bodyText1
+                  style: theme.textTheme.bodyText1!
                       .merge(TextStyle(fontWeight: FontWeight.w600)),
                 ),
               ),
@@ -247,7 +249,7 @@ class _DashboardState extends State<Dashboard> {
                       padding: const EdgeInsets.only(top: 5.0),
                       child: Text(
                         'email@email.com',
-                        style: theme.textTheme.headline3.merge(TextStyle(
+                        style: theme.textTheme.headline3!.merge(TextStyle(
                             color: Constants.kbodycolor,
                             fontWeight: FontWeight.w500)),
                       ),
@@ -266,7 +268,7 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Text(
                   'Password',
-                  style: theme.textTheme.bodyText1
+                  style: theme.textTheme.bodyText1!
                       .merge(TextStyle(fontWeight: FontWeight.w600)),
                 ),
               ),
@@ -284,7 +286,7 @@ class _DashboardState extends State<Dashboard> {
                       padding: const EdgeInsets.only(top: 5.0),
                       child: Text(
                         '*******',
-                        style: theme.textTheme.headline3.merge(TextStyle(
+                        style: theme.textTheme.headline3!.merge(TextStyle(
                             color: Constants.kbodycolor,
                             fontWeight: FontWeight.w500)),
                       ),
@@ -303,7 +305,7 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Text(
                   'Quest Completed',
-                  style: theme.textTheme.bodyText1
+                  style: theme.textTheme.bodyText1!
                       .merge(TextStyle(fontWeight: FontWeight.w600)),
                 ),
               ),
@@ -311,7 +313,7 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.only(top: 5.0),
                 child: Text(
                   '12',
-                  style: theme.textTheme.headline3.merge(TextStyle(
+                  style: theme.textTheme.headline3!.merge(TextStyle(
                       color: Constants.kbodycolor,
                       fontWeight: FontWeight.w500)),
                 ),

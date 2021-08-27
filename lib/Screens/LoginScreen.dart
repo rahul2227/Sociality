@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool isloading = false;
 
   logIn() async {
-    if (formKey.currentState.validate()) {
+    if (formKey.currentState!.validate()) {
       setState(() {
         isloading = true;
       });
@@ -115,7 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 validator: (value) {
                                   return RegExp(
                                               r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                          .hasMatch(value)
+                                          .hasMatch(value!)
                                       ? null
                                       : "Please Enter Correct Email";
                                 },
@@ -130,7 +130,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: TextFormField(
                                 controller: passwordEditingController,
                                 validator: (val) {
-                                  return val.length > 6
+                                  return val!.length > 6
                                       ? null
                                       : "Enter Password 6+ characters";
                                 },

@@ -108,10 +108,12 @@ class _GeneratetaskState extends State<Generatetask> {
                       icon: Icon(Icons.arrow_drop_down,
                           color: Constants.kTextcolor, size: 24.0),
                       elevation: 2,
-                      style:
-                          Theme.of(context).textTheme.bodyText1.merge(TextStyle(
-                                color: Constants.kTextcolor,
-                              )),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1!
+                          .merge(TextStyle(
+                            color: Constants.kTextcolor,
+                          )),
                       value: selected,
                       items: dropitems.map((item) {
                         return DropdownMenuItem(
@@ -121,7 +123,7 @@ class _GeneratetaskState extends State<Generatetask> {
                       }).toList(),
                       onChanged: (value) {
                         setState(() {
-                          selected = value;
+                          selected = value.toString();
                         });
                       },
                     ),

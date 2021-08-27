@@ -10,12 +10,12 @@ class MainTimerScreen extends StatefulWidget {
 
 class _MainTimerScreenState extends State<MainTimerScreen>
     with TickerProviderStateMixin {
-  AnimationController controller;
+  late AnimationController controller;
 
   bool show = true;
 
   String get timerString {
-    Duration duration = controller.duration * controller.value;
+    Duration duration = controller.duration! * controller.value;
     return '${duration.inHours.toString().padLeft(2, '0')}:${duration.inMinutes.toString().padLeft(2, '0')}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
   }
 
@@ -41,7 +41,9 @@ class _MainTimerScreenState extends State<MainTimerScreen>
     ThemeData theme = Theme.of(context);
     return Scaffold(
       backgroundColor: Constants.kBackgroundcolor,
-      appBar: appBarCustom(context),
+      appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(100),
+          child: appBarCustom(context)),
       body: Container(
         padding: EdgeInsets.fromLTRB(0, 12.0, 0, 0.0),
         child: Column(
@@ -55,7 +57,7 @@ class _MainTimerScreenState extends State<MainTimerScreen>
               padding: const EdgeInsets.only(top: 5.0),
               child: AnimatedBuilder(
                   animation: controller,
-                  builder: (BuildContext context, Widget child) {
+                  builder: (BuildContext context, Widget? child) {
                     return new Text(
                       timerString, // This is the timer string which is
                       // wrapped to animation builder for coordinating the animation
@@ -86,13 +88,13 @@ class _MainTimerScreenState extends State<MainTimerScreen>
                       },
                       child: AnimatedBuilder(
                         animation: controller,
-                        builder: (BuildContext context, Widget child) {
+                        builder: (BuildContext context, Widget? child) {
                           return new Container(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 20, vertical: 8),
                             child: Text(
                               "Start Timer",
-                              style: theme.textTheme.headline4.merge(TextStyle(
+                              style: theme.textTheme.headline4!.merge(TextStyle(
                                   color: Constants.kBackgroundcolor,
                                   fontWeight: FontWeight.w600)),
                             ), // this will get a pop window asking for time

@@ -69,7 +69,7 @@ class _DashboardState extends State<Dashboard> {
                           padding: const EdgeInsets.only(top: 5.0),
                           child: Text(
                             'Occcupation/stream',
-                            style: theme.textTheme.headline3
+                            style: theme.textTheme.headline3!
                                 .merge(TextStyle(fontWeight: FontWeight.w500)),
                           ),
                         )
@@ -82,7 +82,7 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Text(
                   'Email',
-                  style: theme.textTheme.bodyText1
+                  style: theme.textTheme.bodyText1!
                       .merge(TextStyle(fontWeight: FontWeight.w600)),
                 ),
               ),
@@ -100,7 +100,7 @@ class _DashboardState extends State<Dashboard> {
                       padding: const EdgeInsets.only(top: 5.0),
                       child: Text(
                         'email@email.com',
-                        style: theme.textTheme.headline3.merge(TextStyle(
+                        style: theme.textTheme.headline3!.merge(TextStyle(
                             color: Constants.kbodycolor,
                             fontWeight: FontWeight.w500)),
                       ),
@@ -119,7 +119,7 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Text(
                   'Password',
-                  style: theme.textTheme.bodyText1
+                  style: theme.textTheme.bodyText1!
                       .merge(TextStyle(fontWeight: FontWeight.w600)),
                 ),
               ),
@@ -137,7 +137,7 @@ class _DashboardState extends State<Dashboard> {
                       padding: const EdgeInsets.only(top: 5.0),
                       child: Text(
                         '*******',
-                        style: theme.textTheme.headline3.merge(TextStyle(
+                        style: theme.textTheme.headline3!.merge(TextStyle(
                             color: Constants.kbodycolor,
                             fontWeight: FontWeight.w500)),
                       ),
@@ -156,7 +156,7 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.only(top: 20.0),
                 child: Text(
                   'Quest Completed',
-                  style: theme.textTheme.bodyText1
+                  style: theme.textTheme.bodyText1!
                       .merge(TextStyle(fontWeight: FontWeight.w600)),
                 ),
               ),
@@ -164,7 +164,7 @@ class _DashboardState extends State<Dashboard> {
                 padding: const EdgeInsets.only(top: 5.0),
                 child: Text(
                   '12',
-                  style: theme.textTheme.headline3.merge(TextStyle(
+                  style: theme.textTheme.headline3!.merge(TextStyle(
                       color: Constants.kbodycolor,
                       fontWeight: FontWeight.w500)),
                 ),

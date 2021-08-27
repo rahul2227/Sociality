@@ -10,12 +10,12 @@ class MainTimerDemoScreen extends StatefulWidget {
 
 class _MainTimerDemoScreenState extends State<MainTimerDemoScreen>
     with TickerProviderStateMixin {
-  AnimationController controller;
+  late AnimationController controller;
 
   bool show = true;
 
   String get timerString {
-    Duration duration = controller.duration * controller.value;
+    Duration duration = controller.duration! * controller.value;
     return '${duration.inMinutes}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
   }
 
@@ -76,7 +76,7 @@ class _MainTimerDemoScreenState extends State<MainTimerDemoScreen>
                             ),
                             AnimatedBuilder(
                               animation: controller,
-                              builder: (BuildContext context, Widget child) {
+                              builder: (BuildContext context, Widget? child) {
                                 return new Text(
                                   timerString, //this is the string that shows the counter
                                   style: theme.textTheme.headline3,
@@ -94,7 +94,7 @@ class _MainTimerDemoScreenState extends State<MainTimerDemoScreen>
                                       child: AnimatedBuilder(
                                         animation: controller,
                                         builder: (BuildContext context,
-                                            Widget child) {
+                                            Widget? child) {
                                           return new Icon(controller.isAnimating
                                               ? Icons.pause
                                               : Icons.play_arrow_outlined);

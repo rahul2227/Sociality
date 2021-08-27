@@ -11,7 +11,7 @@ import 'package:sociality/Screens/MainTimerScreen.dart';
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  UserIn _userFromFirebaseUser(User user) {
+  UserIn? _userFromFirebaseUser(User user) {
     return user != null ? UserIn(uid: user.uid) : null;
   }
 
@@ -19,8 +19,8 @@ class AuthService {
     try {
       UserCredential result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
-      User user = result.user;
-      return _userFromFirebaseUser(user);
+      User? user = result.user;
+      return _userFromFirebaseUser(user!);
     } catch (e) {
       print("this is the error from signInWithEmailAndPassword");
       print(e.toString());
@@ -32,8 +32,8 @@ class AuthService {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
-      User user = result.user;
-      return _userFromFirebaseUser(user);
+      User? user = result.user;
+      return _userFromFirebaseUser(user!);
     } catch (e) {
       print(e.toString());
       return null;
@@ -49,13 +49,13 @@ class AuthService {
     }
   }
 
-  Future<User> signInWithGoogle(BuildContext context) async {
+  Future<User?> signInWithGoogle(BuildContext context) async {
     final GoogleSignIn _googleSignIn = new GoogleSignIn();
 
-    final GoogleSignInAccount googleSignInAccount =
+    final GoogleSignInAccount? googleSignInAccount =
         await _googleSignIn.signIn();
     final GoogleSignInAuthentication googleSignInAuthentication =
-        await googleSignInAccount.authentication;
+        await googleSignInAccount!.authentication;
 
     // Below getCredential was turned into credential
     final AuthCredential credential = GoogleAuthProvider.credential(
@@ -63,7 +63,7 @@ class AuthService {
         accessToken: googleSignInAuthentication.accessToken);
 
     UserCredential result = await _auth.signInWithCredential(credential);
-    User userDetails = result.user;
+    User? userDetails = result.user;
 
     if (result == null) {
     } else {

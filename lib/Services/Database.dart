@@ -36,7 +36,7 @@ class DatabaseMethods {
   //   });
   // }
 
-  Future<Void> addDBTask(taskMap) async {
+  Future<Void?> addDBTask(taskMap) async {
     FirebaseFirestore.instance
         .collection("Misc_Task")
         .add(taskMap)
@@ -46,7 +46,7 @@ class DatabaseMethods {
   }
 
   // This function is in construction for adding databases for every single user.
-  Future<Void> addIDDBTask(String userID, taskMap) async {
+  Future<Void?> addIDDBTask(String userID, taskMap) async {
     FirebaseFirestore.instance
         .collection("miscTaskRoom")
         .add(taskMap)

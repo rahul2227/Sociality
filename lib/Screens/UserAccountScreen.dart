@@ -17,7 +17,7 @@ class AccountScreen extends StatelessWidget {
           title: Text('Account details',
               style: Theme.of(context)
                   .textTheme
-                  .headline3
+                  .headline3!
                   .merge(TextStyle(fontWeight: FontWeight.w600))),
           elevation: 0,
           actions: <Widget>[

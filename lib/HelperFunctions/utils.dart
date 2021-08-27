@@ -23,7 +23,7 @@ changeEmail(BuildContext context) {
                   },
                   style: eventButtonStyle(Constants.kaccent1),
                   child: Text('Done',
-                      style: Theme.of(context).textTheme.bodyText1.merge(
+                      style: Theme.of(context).textTheme.bodyText1!.merge(
                           TextStyle(color: Constants.kBackgroundcolor)))),
             ),
           ],
@@ -45,7 +45,7 @@ changePassword(BuildContext context) {
                 Text('Enter Old Password',
                     style: Theme.of(context)
                         .textTheme
-                        .bodyText1
+                        .bodyText1!
                         .merge(TextStyle(fontWeight: FontWeight.w600))),
                 Padding(
                   padding: const EdgeInsets.only(top: 5.0),
@@ -59,7 +59,7 @@ changePassword(BuildContext context) {
                   child: Text('Enter New Password',
                       style: Theme.of(context)
                           .textTheme
-                          .bodyText1
+                          .bodyText1!
                           .merge(TextStyle(fontWeight: FontWeight.w600))),
                 ),
                 Padding(
@@ -82,7 +82,7 @@ changePassword(BuildContext context) {
                   },
                   style: eventButtonStyle(Constants.kaccent1),
                   child: Text('Done',
-                      style: Theme.of(context).textTheme.bodyText1.merge(
+                      style: Theme.of(context).textTheme.bodyText1!.merge(
                           TextStyle(color: Constants.kBackgroundcolor)))),
             ),
           ],

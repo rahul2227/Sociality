@@ -27,7 +27,7 @@ class _SignUpState extends State<SignUp> {
   bool isLoading = false;
 
   signMeUp() async {
-    if (formKey.currentState.validate()) {
+    if (formKey.currentState!.validate()) {
       setState(() {
         isLoading = true;
       });
@@ -100,7 +100,7 @@ class _SignUpState extends State<SignUp> {
                                   child: TextFormField(
                                     controller: usernameEditingController,
                                     validator: (value) {
-                                      return value.isEmpty || value.length < 4
+                                      return value!.isEmpty || value.length < 4
                                           ? "Please provide a Username"
                                           : null;
                                     },
@@ -120,7 +120,7 @@ class _SignUpState extends State<SignUp> {
                                     validator: (value) {
                                       return RegExp(
                                                   r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                              .hasMatch(value)
+                                              .hasMatch(value!)
                                           ? null
                                           : "Please enter correct email";
                                     },
@@ -138,7 +138,7 @@ class _SignUpState extends State<SignUp> {
                                   child: TextFormField(
                                     controller: passwordEditingController,
                                     validator: (val) {
-                                      return val.length < 6
+                                      return val!.length < 6
                                           ? "Please enter a Password having 6+ characters"
                                           : null;
                                     },

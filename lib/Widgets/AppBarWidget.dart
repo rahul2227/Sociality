@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sociality/HelperFunctions/Theme.dart';
 import 'package:sociality/Screens/TaskBoard.dart';
 
-Widget appBarCustom(BuildContext context, {String barTitle}) {
+Widget appBarCustom(BuildContext context, {String? barTitle}) {
   return AppBar(
     title: (barTitle != null)
         ? Text(

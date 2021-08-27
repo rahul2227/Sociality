@@ -35,7 +35,7 @@ class _TaskState extends State<Task> {
                   child: Text(
                     '$serialNumber.',
                     style:
-                        Theme.of(context).textTheme.headline3.merge(TextStyle(
+                        Theme.of(context).textTheme.headline3!.merge(TextStyle(
                               color: Constants.kBackgroundcolor,
                             )),
                   ),
@@ -45,7 +45,7 @@ class _TaskState extends State<Task> {
                   child: Text(
                     '$data',
                     style:
-                        Theme.of(context).textTheme.headline3.merge(TextStyle(
+                        Theme.of(context).textTheme.headline3!.merge(TextStyle(
                               color: Constants.kBackgroundcolor,
                             )),
                   ),
